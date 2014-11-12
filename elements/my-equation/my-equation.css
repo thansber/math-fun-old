@@ -12,6 +12,12 @@
   width: 17vw;
 }
 
+#answer::-webkit-inner-spin-button,
+#answer::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 [result] {
   bottom: 30%;
   font-size: 3vw;
