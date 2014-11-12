@@ -1,5 +1,5 @@
 #equation {
-  border-bottom: 20px solid white;
+  border-bottom: 1vw solid white;
 }
 #answer {
   background-color: #3c3c3c;
@@ -11,15 +11,18 @@
   text-align: right;
   width: 17vw;
 }
+
 [result] {
-  bottom: 8%;
-  font-size: 40px;
-  left: 20%;
+  bottom: 30%;
+  font-size: 3vw;
   position: absolute;
+  width: 25vw;
 }
+
 [result][correct] {
-  left: 20%;
+  left: -80%;
 }
+
 [result][incorrect] {
-  left: 12%;
+  left: -160%;
 }
