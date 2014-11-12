@@ -1,3 +1,4 @@
 .externalToolBuilders
 .project
+gulpfile.js
 node_modules
