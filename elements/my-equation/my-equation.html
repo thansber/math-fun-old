@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-a11y-keys/core-a11y-keys.html">
+
+<polymer-element name="my-equation" attributes="number1 number2 operation">
+  <template>
+    <link rel="stylesheet" href="my-equation.css">
+    <div id="equation" layout horizontal end-justified>
+      <div id="operation" self-end>{{symbol.text}}</div>
+      <div id="numbers" layout vertical end>
+        <div id="number1">{{number1}}</div>
+        <div id="number2">{{number2}}</div>
+      </div>
+    </div>
+    <input id="answer" type="text" maxlength="2" autocomplete="off" autofocus on-blur="{{refocusAnswer}}"/>
+    <span correct result hidden?="{{ !hasAnswer || !correct }}">Correct!</span>
+    <span incorrect result hidden?="{{ !hasAnswer || correct }}">Close...try again</span>
+    <core-a11y-keys keys="space enter" target="{{$.answer}}" on-keys-pressed="{{checkAnswer}}"></core-a11y-keys>
+  </template>
+  <script src="my-equation.js"></script>
+</polymer-element>

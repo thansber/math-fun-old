@@ -1,0 +1,25 @@
+#equation {
+  border-bottom: 20px solid white;
+}
+#answer {
+  background-color: #3c3c3c;
+  border: 0;
+  color: white;
+  font-size: 8vw;
+  margin-top: 20px;
+  padding: 0;
+  text-align: right;
+  width: 17vw;
+}
+[result] {
+  bottom: 8%;
+  font-size: 40px;
+  left: 20%;
+  position: absolute;
+}
+[result][correct] {
+  left: 20%;
+}
+[result][incorrect] {
+  left: 12%;
+}

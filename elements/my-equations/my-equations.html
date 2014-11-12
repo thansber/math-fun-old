@@ -1,0 +1,13 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../my-equation/my-equation.html">
+
+<polymer-element name="my-equations" attributes="min max operations">
+  <template>
+    <my-equation id="equation"
+      number1="{{ number1 }}"
+      number2="{{ number2 }}"
+      operation="{{ operation }}"
+      on-correct-answer="{{ nextEquation }}"></my-equation>
+  </template>
+  <script src="my-equations.js"></script>
+</polymer-element>
