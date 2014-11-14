@@ -11,14 +11,24 @@
   };
   Polymer('my-equations', {
     generateEquation: function() {
-      var number1 = this.randomNumber(this.min, this.max),
-          number2 = this.randomNumber(this.min, this.max);
+      var number1 = this.randomNumber(this.minNumber, this.maxNumber),
+          number2 = this.randomNumber(this.minNumber, this.maxNumber);
       this.operation = this.randomOperation();
       operations[this.operation].call(this, number1, number2);
     },
+    maxChanged: function() {
+      this.maxNumber = +this.max;
+    },
+    minChanged: function() {
+      this.minNumber = +this.min;
+    },
     nextEquation: function() {
       this.$.equation.clearAnswer();
+      this.$.equation.refocusAnswer();
       this.generateEquation();
+    },
+    operationsChanged: function() {
+      this.operationsArray = Array.isArray(this.operations) ? this.operations : [this.operations];
     },
     publish: {
       min: 1,
@@ -29,10 +39,11 @@
       return Math.floor(Math.random() * (max + 1 - min)) + min;
     },
     randomOperation: function() {
-      return this.operations[this.randomNumber(0, this.operations.length - 1)];
+      return this.operationsArray[this.randomNumber(0, this.operationsArray.length - 1)];
     },
-    ready: function() {
-      this.generateEquation();
+    start: function() {
+      this.nextEquation();
+      this.removeAttribute('hidden');
     }
   });
 })();

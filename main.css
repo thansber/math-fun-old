@@ -1,10 +1,91 @@
 body {
   background-color: #2b2b2b;
   color: white;
-  margin: 40px 0;
 }
 
-my-equations {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+[has-text] {
   font-family: Verdana;
+}
+
+[drawer] {
+  border-right: 2px solid #ccc;
+  font-size: 2vw;
+  padding: 1vw;
+}
+
+[drawer] h1,
+[drawer] h2 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0 0 1em;
+}
+
+[drawer] input[type="number"] {
+  font-size: 2vw;
+  text-align: right;
+  width: 2em;
+}
+
+[drawer] [operations] {
+  margin-left: 0.5em;
+}
+
+[drawer] [operations] [operation] {
+  background-color: rgb(102, 102, 102);
+  border-radius: 12px;
+  color: rgb(144, 144, 144);
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  min-height: inherit;
+  outline: none;
+  opacity: 0.4;
+  padding: 2px 18px 5px;
+  position: relative;
+  transition: opacity 0.4s;
+}
+
+[drawer] [operations] [operation][active] {
+  color: rgb(240, 240, 240);
+  font-weight: inherit;
+  opacity: 1;
+}
+
+[drawer] [operations] [operation] /deep/ #label {
+  text-align: center;
+  width: 100%;
+}
+
+[drawer] button {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px #666;
+  cursor: pointer;
+  font-size: 3vw;
+  outline: none;
+  padding: 4px 0 8px;
+  width: 80%;
+}
+
+[drawer] button:active {
+  box-shadow: none;
+  top: 1px;
+}
+
+[drawer] button[practice] {
+  background-color: rgb(26, 131, 26);
+}
+
+[drawer] button[practice]:active {
+  background-color: rgb(20, 115, 20);
+}
+
+
+my-equations {
   font-size: 8vw;
 }
