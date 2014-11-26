@@ -23,6 +23,7 @@
       <span incorrect result hidden?="{{ !hasAnswer || correct }}">Close...try again</span>
     </div>
     <core-a11y-keys keys="space enter" target="{{$.answer}}" on-keys-pressed="{{checkAnswer}}"></core-a11y-keys>
+    <core-a11y-keys keys="esc q" target="{{$.answer}}" on-keys-pressed="{{quitPractice}}"></core-a11y-keys>
   </template>
   <script src="my-equation.js"></script>
 </polymer-element>

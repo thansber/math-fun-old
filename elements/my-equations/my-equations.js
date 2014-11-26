@@ -10,6 +10,9 @@
     }
   };
   Polymer('my-equations', {
+    clear: function() {
+      this.setAttribute('hidden', true);
+    },
     generateEquation: function() {
       var number1 = this.randomNumber(this.minNumber, this.maxNumber),
           number2 = this.randomNumber(this.minNumber, this.maxNumber);

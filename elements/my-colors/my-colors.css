@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+:host [color] {
+  border-radius: 16px;
+  cursor: pointer;
+  height: 60px;
+  opacity: 0.4;
+  margin: 0 8px 8px 0;
+  transition: opacity 0.2s ease-in-out;
+  width: 60px;
+}
+
+:host [color][active] {
+  box-shadow: 0 0 16px white;
+  opacity: 1;
+}

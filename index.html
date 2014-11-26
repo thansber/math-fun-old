@@ -2,42 +2,56 @@
 <html>
 <head>
   <title>Fun with Math</title>
-  <script src="bower_components/platform/platform.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <link rel="import" href="bower_components/polymer/polymer.html">
   <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/core-item/core-item.html">
   <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
   <link rel="import" href="bower_components/core-selector/core-selector.html">
   <link rel="import" href="elements/my-equations/my-equations.html">
+  <link rel="import" href="elements/my-colors/my-colors.html">
   <link href="main.css" rel="stylesheet" shim-shadowdom>
 </head>
 
 <body>
 <template is="auto-binding" id="root-template">
-  <core-drawer-panel drawerWidth="35%">
+  <core-drawer-panel id="drawerPanel" drawerWidth="35%" forceNarrow="true" defaultSelected="drawer">
     <div drawer has-text vertical layout>
-      <h1 self-center>I want to practice</h1>
-      <h2 horizontal layout self-center>
+      <h1>I want to practice</h1>
+      <h2 horizontal layout>
         <core-selector operations valueattr="operation" selected="{{ selectedOperations }}">
           <core-item operation="addition" label="adding"></core-item>
           <core-item operation="subtraction" label="subtracting"></core-item>
+          <!-- <core-item operation="multiplication" label="multiplying"></core-item> -->
         </core-selector>
         <core-localstorage name="selectedOperations" value="{{ selectedOperations }}"></core-localstorage>
       </h2>
-      <h2 self-center>
+      <h2>
         numbers from <input type="number" id="start" value="{{ startNumber }}" maxlength="2" />
         to <input type="number" id="end" value="{{ endNumber }}" maxlength="2" />
         <core-localstorage name="startNumber" value="{{ startNumber }}"></core-localstorage>
         <core-localstorage name="endNumber" value="{{ endNumber }}"></core-localstorage>
       </h2>
-      <button practice self-center relative on-tap="{{ onStartPractice }}">Begin</button>
+      <button practice relative on-tap="{{ onStartPractice }}">Begin</button>
+
+      <div colors vertical layout>
+        <h1>Select your favorite color</h1>
+        <my-colors self-center on-core-select="{{ onChangeColor }}"></my-colors>
+      </div>
     </div>
     <my-equations
       min="{{ startNumber }}"
       max="{{ endNumber }}"
       operations="{{ selectedOperations }}"
       id="equations"
-      main hidden has-text horizontal layout center-justified></my-equations>
+      on-quit-practice="{{ onQuitPractice }}"
+      main hidden has-text horizontal layout center-justified>
+      <div actions>
+        <core-item icon="menu" core-drawer-toggle></core-item>
+        <core-item icon="help" hidden></core-item>
+      </div>
+    </my-equations>
   </core-drawer-panel>
 </template>
 
@@ -46,6 +60,17 @@ document.addEventListener('polymer-ready', function() {
   var t = document.querySelector('#root-template');
   t.onStartPractice = function(e, detail) {
     this.$.equations.start();
+    this.$.drawerPanel.closeDrawer();
+  };
+  t.onChangeColor = function(e, detail) {
+    if (detail.isSelected) {
+      this.$.drawerPanel.$.main.style.backgroundColor = detail.item.style.backgroundColor;
+      this.$.equations.setAttribute('darkText', detail.item.getAttribute('darkText'));
+    }
+  }
+  t.onQuitPractice = function(e) {
+    this.$.drawerPanel.openDrawer();
+    this.$.equations.clear();
   };
 });
 </script>

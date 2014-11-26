@@ -14,7 +14,13 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.4.2",
-    "core-a11y-keys": "Polymer/core-a11y-keys#0.4.2"
+    "polymer": "Polymer/polymer",
+    "core-a11y-keys": "Polymer/core-a11y-keys",
+    "core-drawer-panel": "Polymer/core-drawer-panel",
+    "core-localstorage": "Polymer/core-localstorage",
+    "core-media-query": "Polymer/core-media-query",
+    "core-selector": "Polymer/core-selector",
+    "core-item": "Polymer/core-item",
+    "core-icons": "Polymer/core-icons#~0.5.1"
   }
 }

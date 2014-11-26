@@ -30,6 +30,9 @@ Polymer('my-equation', {
   operationChanged: function() {
     this.symbol = this.symbols[this.operation.toUpperCase()];
   },
+  quitPractice: function() {
+    this.fire('quit-practice');
+  },
   refocusAnswer: function() {
     this.$.answer.focus();
     this.$.answer.select();

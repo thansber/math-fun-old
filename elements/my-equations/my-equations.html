@@ -3,12 +3,18 @@
 
 <polymer-element name="my-equations" attributes="min max operations">
   <template>
+    <style>
+      :host([darkText="true"]) #equation::shadow #equation {
+        border-color: black;
+      }
+    </style>
     <my-equation id="equation"
       number1="{{ number1 }}"
       number2="{{ number2 }}"
       operation="{{ operation }}"
       on-correct-answer="{{ nextEquation }}"
       on-ready="{{ start }}"></my-equation>
+    <content select="*"></content>
   </template>
   <script src="my-equations.js"></script>
 </polymer-element>
