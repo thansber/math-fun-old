@@ -16,8 +16,7 @@
         id="answer"
         type="number"
         maxlength="2"
-        autocomplete="off"
-        autofocus />
+        autocomplete="off" />
         <!-- on-blur="{{refocusAnswer}}" -->
       <span correct result hidden?="{{ !hasAnswer || !correct }}">Correct!</span>
       <span incorrect result hidden?="{{ !hasAnswer || correct }}">Close...try again</span>

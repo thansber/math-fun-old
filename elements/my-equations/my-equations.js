@@ -7,6 +7,10 @@
     subtraction: function(number1, number2) {
       this.number1 = Math.max(number1, number2);
       this.number2 = Math.min(number1, number2);
+    },
+    multiplication: function(number1, number2) {
+      this.number1 = number1;
+      this.number2 = number2;
     }
   };
   Polymer('my-equations', {

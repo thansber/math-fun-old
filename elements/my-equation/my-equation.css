@@ -1,6 +1,11 @@
 #equation {
   border-bottom: 1vw solid white;
 }
+
+#equation #operation {
+  margin-right: 0.25em;
+}
+
 #answer {
   background-color: #3c3c3c;
   border: 0;

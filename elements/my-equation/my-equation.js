@@ -7,6 +7,10 @@ Polymer('my-equation', {
     SUBTRACTION: {
       text: '-',
       calculate: function(a, b) { return a - b; }
+    },
+    MULTIPLICATION: {
+      text: 'x',
+      calculate: function(a, b) { return a * b; }
     }
   },
   checkAnswer: function() {
